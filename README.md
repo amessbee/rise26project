@@ -25,7 +25,7 @@ test bed for the framework.
 
 ## Open the GUI
 
-[**Download the one-file U.S. Infrastructure Stress Monitor**](./Infrastructure_Stress_Monitor.html?raw=1)
+[**Download the one-file U.S. Infrastructure Stress Monitor**](https://raw.githubusercontent.com/amessbee/rise26project/refs/heads/main/Infrastructure_Stress_Monitor.html)
 
 Download `Infrastructure_Stress_Monitor.html` and double-click it. The GUI:
 
