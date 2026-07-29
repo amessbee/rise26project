@@ -1,7 +1,0 @@
-UPDATED MODEL DIAGRAM PACKAGE
-=============================
-
-1. Double-click START_LOCALHOST.bat
-2. Open http://127.0.0.1:8000 if needed
-3. Scroll to HOW EACH FINAL MODEL WORKS
-4. Press Ctrl+C to stop the server

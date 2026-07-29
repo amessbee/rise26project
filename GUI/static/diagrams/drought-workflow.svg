@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-labelledby="t d">
-<title id="t">Drought ANOVA plus Ridge workflow</title><desc id="d">Climate and lag features pass through ANOVA top twenty selection and Ridge regression to produce zero to one hundred drought.</desc>
-<defs><marker id="a" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#D9859E"/></marker>
-<style>.n{fill:#160F15;stroke:#5AA7AB;stroke-width:3}.f{fill:none;stroke:#D9859E;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#a)}.r{fill:none;stroke:#D9859E;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.l{fill:#E8DDE2;font:600 16px Arial,Helvetica,sans-serif;text-anchor:middle}.s{fill:#B7AAB1;font:500 13px Arial,Helvetica,sans-serif;text-anchor:middle}</style></defs>
-<rect class="n" x="14" y="52" width="145" height="76" rx="12"/><text class="l" x="86.5" y="82"><tspan x="86.5">climate +</tspan><tspan x="86.5" dy="21">lag features</tspan></text>
-<path class="f" d="M159 90H205"/><path class="n" d="M210 30H365L333 148H242Z"/><text class="l" x="287.5" y="83"><tspan x="287.5">ANOVA</tspan><tspan x="287.5" dy="21">top 20</tspan></text>
-<path class="f" d="M365 90H410"/><rect class="n" x="414" y="52" width="148" height="76" rx="12"/><path class="r" d="M438 111L470 79L501 101L539 63"/><text class="s" x="488" y="159">Ridge</text>
-<path class="f" d="M562 90H614"/><rect class="n" x="618" y="52" width="128" height="76" rx="12"/><text class="l" x="682" y="82"><tspan x="682">0–100</tspan><tspan x="682" dy="21">drought</tspan></text>
-</svg>
