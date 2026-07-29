@@ -1,10 +1,10 @@
-# Project Overview
+﻿# Project Overview
 
 This project trains, validates, and freezes four machine learning models that estimate infrastructure and environmental stress across U.S. states over time:
 
-- **Electrical grid reliability** — SAIDI (outage duration) and SAIFI (outage frequency) per customer
-- **Drought severity** — a 0-100 severity score at the county/state level
-- **Drinking water compliance** — health-based violation rates for public water systems
+- **Electrical grid reliability** â€” SAIDI (outage duration) and SAIFI (outage frequency) per customer
+- **Drought severity** â€” a 0-100 severity score at the county/state level
+- **Drinking water compliance** â€” health-based violation rates for public water systems
 
 The models are built from three separate feature datasets (electricity, drought, and water compliance - sourced and described in the Reproducibility section) and produce state-year level predictions that can be used to track historical stress trends and generate short-term baseline projections. All four pipelines are trained, evaluated, and saved in a single run, producing a self-contained `saved_models/` folder with the trained artifacts, performance metrics, and prediction history that downstream tools (like the CLI scorer and GUI) read from.
 
@@ -31,3 +31,34 @@ Across all four, only leakage-safe features are used. Columns that wouldn't be k
 # Chronological Evaluation Policy
 
 Models are trained and scored using chronological splits rather than random ones, so reported performance reflects how they'd actually perform on real future data - earlier years are used for training/selection, and only later, untouched years are used to measure final accuracy. Because of this, the historical "predicted" columns in the output CSVs are genuinely out-of-sample, and years too early to have an out-of-sample prediction are intentionally left null rather than filled with in-sample fits.
+
+## Open the GUI
+
+### Use online â€” no installation
+
+[**Open the live U.S. Infrastructure Stress Monitor â†’**](https://amessbee.github.io/rise26project/)
+
+The browser version uses the frozen, precomputed project outputs included in
+the repository.
+
+### Run locally on Windows
+
+Download or clone the repository, then double-click:
+
+```text
+START_GUI_WINDOWS.bat
+```
+
+Open `http://127.0.0.1:8081` if the browser does not open automatically.
+
+### Run locally on macOS
+
+Download or clone the repository. In Terminal, from the repository folder, run:
+
+```bash
+chmod +x START_GUI_MAC.command
+./START_GUI_MAC.command
+```
+
+Open `http://127.0.0.1:8081` if the browser does not open automatically.
+

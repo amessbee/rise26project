@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "quick_mode": false,
+  "metrics_are_final": true,
+  "latest_observed_year": 2024,
+  "saved_model_folder": "D:\\RISE_Project\\stress_score_cli\\saved_models",
+  "completed_utc": "2026-07-25T17:13:40.664908+00:00",
+  "required_file_count": 17
+}

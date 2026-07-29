@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-labelledby="t d">
+<title id="t">Compliance CatBoost Tweedie workflow</title><desc id="d">Water systems pass through Tweedie boosted trees, aggregate, and produce a state violation rate.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#D9859E"/></marker>
+<style>.n{fill:#160F15;stroke:#5AA7AB;stroke-width:3}.f{fill:none;stroke:#D9859E;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#a)}.c{fill:#160F15;stroke:#5AA7AB;stroke-width:3}.l{fill:#E8DDE2;font:600 16px Arial,Helvetica,sans-serif;text-anchor:middle}.s{fill:#B7AAB1;font:500 13px Arial,Helvetica,sans-serif;text-anchor:middle}</style></defs>
+<rect class="n" x="14" y="52" width="154" height="84" rx="12"/><circle class="c" cx="45" cy="80" r="8"/><circle class="c" cx="76" cy="80" r="8"/><circle class="c" cx="107" cy="80" r="8"/><circle class="c" cx="138" cy="80" r="8"/><text class="s" x="91" y="119">water systems</text>
+<path class="f" d="M168 94H213"/><rect class="n" x="216" y="52" width="170" height="84" rx="12"/><text class="l" x="301" y="85"><tspan x="301">Tweedie</tspan><tspan x="301" dy="21">boosted trees</tspan></text>
+<path class="f" d="M386 94H430"/><circle class="c" cx="470" cy="76" r="18"/><circle class="c" cx="516" cy="76" r="18"/><circle class="c" cx="493" cy="125" r="18"/>
+<path class="f" d="M534 94H584"/><rect class="n" x="588" y="52" width="158" height="84" rx="12"/><text class="l" x="667" y="84"><tspan x="667">state</tspan><tspan x="667" dy="21">violation rate</tspan></text>
+</svg>

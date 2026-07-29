@@ -1,0 +1,506 @@
+{
+  "metrics_are_final": true,
+  "quick_mode_warning": null,
+  "electricity": {
+    "saidi": {
+      "validation": {
+        "utility_row": {
+          "mae": 238.5960051785288,
+          "rmse": 627.340399238478,
+          "r2": 0.05733848317559598,
+          "rows": 2085,
+          "weight_sum": 2085.0
+        },
+        "state_year": {
+          "mae": 183.9207449771825,
+          "rmse": 460.04588776191423,
+          "r2": 0.024622069284226167,
+          "rows": 102,
+          "weight_sum": 293907094.8
+        }
+      },
+      "backtest": {
+        "utility_row": {
+          "mae": 294.6690467558378,
+          "rmse": 785.4774972667977,
+          "r2": 0.07197584703359439,
+          "rows": 3821,
+          "weight_sum": 3820.9999999999995
+        },
+        "state_year": {
+          "mae": 240.55498821607608,
+          "rmse": 466.14730043751655,
+          "r2": 0.0832920384948983,
+          "rows": 204,
+          "weight_sum": 609516657.0
+        }
+      },
+      "backtest_by_year": [
+        {
+          "year": 2021,
+          "mae": 278.7745694076253,
+          "rmse": 609.3350930446547,
+          "r2": 0.12104675985987057,
+          "rows": 51,
+          "weight_sum": 149408380.2
+        },
+        {
+          "year": 2022,
+          "mae": 176.27948650092642,
+          "rmse": 274.6774948036228,
+          "r2": -0.003671003544351459,
+          "rows": 51,
+          "weight_sum": 151445198.3
+        },
+        {
+          "year": 2023,
+          "mae": 155.67631190084666,
+          "rmse": 214.9298401762981,
+          "r2": 0.36735671627279,
+          "rows": 51,
+          "weight_sum": 153198841.5
+        },
+        {
+          "year": 2024,
+          "mae": 350.0798898490973,
+          "rmse": 613.2535211252267,
+          "r2": -0.143493092430921,
+          "rows": 51,
+          "weight_sum": 155464237.0
+        }
+      ]
+    },
+    "saifi": {
+      "validation": {
+        "utility_row": {
+          "mae": 0.28103580074160606,
+          "rmse": 0.5019352661218479,
+          "r2": 0.5548047917890022,
+          "rows": 1929,
+          "weight_sum": 1929.0
+        },
+        "state_year": {
+          "mae": 0.17941608062072345,
+          "rmse": 0.27224217360732045,
+          "r2": 0.6486670325761718,
+          "rows": 102,
+          "weight_sum": 290256489.40000004
+        }
+      },
+      "backtest": {
+        "utility_row": {
+          "mae": 0.32384032351549563,
+          "rmse": 0.5901592638832002,
+          "r2": 0.5674477850855304,
+          "rows": 3567,
+          "weight_sum": 3567.000000000001
+        },
+        "state_year": {
+          "mae": 0.2188657005952971,
+          "rmse": 0.30510760147419674,
+          "r2": 0.6596333489359099,
+          "rows": 204,
+          "weight_sum": 600033115.4
+        }
+      },
+      "backtest_by_year": [
+        {
+          "year": 2021,
+          "mae": 0.27771136718893125,
+          "rmse": 0.4107295214051126,
+          "r2": 0.5234200068852166,
+          "rows": 51,
+          "weight_sum": 146293610.4
+        },
+        {
+          "year": 2022,
+          "mae": 0.2082188385513483,
+          "rmse": 0.2892475394150414,
+          "r2": 0.6422363250357814,
+          "rows": 51,
+          "weight_sum": 149320327.3
+        },
+        {
+          "year": 2023,
+          "mae": 0.1783586403395799,
+          "rmse": 0.21193157133346283,
+          "r2": 0.8077339444796361,
+          "rows": 51,
+          "weight_sum": 151044268.8
+        },
+        {
+          "year": 2024,
+          "mae": 0.21299386141277568,
+          "rmse": 0.2785574973308486,
+          "r2": 0.6976970549024233,
+          "rows": 51,
+          "weight_sum": 153374908.89999998
+        }
+      ]
+    }
+  },
+  "drought": {
+    "validation": {
+      "county_week_row": {
+        "mae": 1.7837162218608233,
+        "rmse": 4.35840301463094,
+        "r2": 0.9440296442509136,
+        "rows": 330120,
+        "weight_sum": 330120.0
+      },
+      "state_year": {
+        "mae": 0.40623883044911874,
+        "rmse": 0.5638703369652032,
+        "r2": 0.997557592680016,
+        "rows": 102,
+        "weight_sum": null
+      }
+    },
+    "backtest": {
+      "county_week_row": {
+        "mae": 2.5574765299764706,
+        "rmse": 5.371686106540111,
+        "r2": 0.9546298084934665,
+        "rows": 657096,
+        "weight_sum": 657096.0
+      },
+      "state_year": {
+        "mae": 0.46909451130266633,
+        "rmse": 0.5823798909027077,
+        "r2": 0.9989148699781186,
+        "rows": 204,
+        "weight_sum": null
+      }
+    },
+    "backtest_by_year": [
+      {
+        "year": 2021,
+        "mae": 0.4606683624874765,
+        "rmse": 0.5666346705923698,
+        "r2": 0.9994778417710778,
+        "rows": 51,
+        "weight_sum": null
+      },
+      {
+        "year": 2022,
+        "mae": 0.4388739413557858,
+        "rmse": 0.5505681014586599,
+        "r2": 0.999214537471237,
+        "rows": 51,
+        "weight_sum": null
+      },
+      {
+        "year": 2023,
+        "mae": 0.47557625573698403,
+        "rmse": 0.5868642080039917,
+        "r2": 0.9977379959095248,
+        "rows": 51,
+        "weight_sum": null
+      },
+      {
+        "year": 2024,
+        "mae": 0.5012594856304191,
+        "rmse": 0.6229411420143394,
+        "r2": 0.9926466171178088,
+        "rows": 51,
+        "weight_sum": null
+      }
+    ]
+  },
+  "compliance": {
+    "validation": {
+      "state_year": {
+        "mae": 1.2277588673564417,
+        "rmse": 2.146393187921588,
+        "r2": 0.9196172928053122,
+        "rows": 102,
+        "weight_sum": null
+      },
+      "system_row": {
+        "mae": 0.002606813062833215,
+        "rmse": 0.018478276361990287,
+        "r2": 0.2798850029708265,
+        "rows": 302801,
+        "scope": "ordinary public-water-system rows only"
+      },
+      "classifier_diagnostics": null,
+      "winner": "tweedie_p1_7_d6_lr0_03"
+    },
+    "backtest": {
+      "state_year": {
+        "mae": 1.6481925148780554,
+        "rmse": 3.4058359688000652,
+        "r2": 0.805370499779664,
+        "rows": 204,
+        "weight_sum": null
+      },
+      "system_row": {
+        "mae": 0.0025756524121066425,
+        "rmse": 0.01857188343091832,
+        "r2": 0.3125172732286722,
+        "rows": 582860,
+        "scope": "ordinary public-water-system rows only"
+      }
+    },
+    "backtest_by_year": [
+      {
+        "year": 2021,
+        "mae": 0.8046327581795858,
+        "rmse": 1.2617882287365767,
+        "r2": 0.9594000399699653,
+        "rows": 51,
+        "weight_sum": null
+      },
+      {
+        "year": 2022,
+        "mae": 0.9434705965339308,
+        "rmse": 1.3911369793188404,
+        "r2": 0.9602093254818652,
+        "rows": 51,
+        "weight_sum": null
+      },
+      {
+        "year": 2023,
+        "mae": 1.388164362562516,
+        "rmse": 3.0761013654847726,
+        "r2": 0.8437308952423962,
+        "rows": 51,
+        "weight_sum": null
+      },
+      {
+        "year": 2024,
+        "mae": 3.456502342236189,
+        "rmse": 5.78006084270272,
+        "r2": 0.6047436075351013,
+        "rows": 51,
+        "weight_sum": null
+      }
+    ],
+    "candidate_ranking": [
+      {
+        "candidate": "tweedie_p1_7_d6_lr0_03",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 6, \"learning_rate\": 0.03, \"variance_power\": 1.7}",
+        "iterations": "{\"tweedie\": 937}",
+        "validation_state_mae": 1.2277588673564417,
+        "validation_state_rmse": 2.146393187921588,
+        "validation_state_r2": 0.9196172928053122,
+        "validation_system_mae": 0.002606813062833215,
+        "validation_system_rmse": 0.018478276361990287,
+        "validation_system_r2": 0.2798850029708265,
+        "training_seconds": 141.28295029999572,
+        "prediction_seconds": 0.9717233999981545
+      },
+      {
+        "candidate": "tweedie_p1_7_d5_lr0_02",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 5, \"learning_rate\": 0.02, \"variance_power\": 1.7}",
+        "iterations": "{\"tweedie\": 1488}",
+        "validation_state_mae": 1.237047381613154,
+        "validation_state_rmse": 2.171195232104896,
+        "validation_state_r2": 0.9177488802238823,
+        "validation_system_mae": 0.0026411703324928674,
+        "validation_system_rmse": 0.018437562665345,
+        "validation_system_r2": 0.28305480558517204,
+        "training_seconds": 185.72769280000648,
+        "prediction_seconds": 1.1873103999969317
+      },
+      {
+        "candidate": "tweedie_p1_7_d6_lr0_02",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 6, \"learning_rate\": 0.02, \"variance_power\": 1.7}",
+        "iterations": "{\"tweedie\": 1495}",
+        "validation_state_mae": 1.2561197550529697,
+        "validation_state_rmse": 2.2214250383185674,
+        "validation_state_r2": 0.9138991594555618,
+        "validation_system_mae": 0.002592650858656635,
+        "validation_system_rmse": 0.018447834083294163,
+        "validation_system_r2": 0.2822557742710047,
+        "training_seconds": 218.3837419999909,
+        "prediction_seconds": 1.116058100000373
+      },
+      {
+        "candidate": "hurdle_classifier_d6_lr0_05_magnitude_d7_lr0_05",
+        "family": "hurdle",
+        "configuration": "{\"classifier_depth\": 6, \"classifier_learning_rate\": 0.05, \"magnitude_depth\": 7, \"magnitude_learning_rate\": 0.05}",
+        "iterations": "{\"classifier\": 328, \"magnitude\": 225}",
+        "validation_state_mae": 1.3605848978199597,
+        "validation_state_rmse": 2.2751323281692684,
+        "validation_state_r2": 0.9096855193188547,
+        "validation_system_mae": 0.002775550856593092,
+        "validation_system_rmse": 0.018248867427468753,
+        "validation_system_r2": 0.29765455266953667,
+        "training_seconds": 13.66141320001043,
+        "prediction_seconds": 0.7971065000019735
+      },
+      {
+        "candidate": "tweedie_p1_7_d5_lr0_03",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 5, \"learning_rate\": 0.03, \"variance_power\": 1.7}",
+        "iterations": "{\"tweedie\": 1231}",
+        "validation_state_mae": 1.347918107599516,
+        "validation_state_rmse": 2.2838942319322766,
+        "validation_state_r2": 0.9089885483846813,
+        "validation_system_mae": 0.0026087366990172624,
+        "validation_system_rmse": 0.01849497737284631,
+        "validation_system_r2": 0.2785827079838017,
+        "training_seconds": 196.77423420001287,
+        "prediction_seconds": 1.8433231000090018
+      },
+      {
+        "candidate": "tweedie_p1_3_d6_lr0_03",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 6, \"learning_rate\": 0.03, \"variance_power\": 1.3}",
+        "iterations": "{\"tweedie\": 1499}",
+        "validation_state_mae": 1.3428417355589761,
+        "validation_state_rmse": 2.2963745758464356,
+        "validation_state_r2": 0.9079911662476192,
+        "validation_system_mae": 0.0027983754537400105,
+        "validation_system_rmse": 0.018667489445858765,
+        "validation_system_r2": 0.26506188995995006,
+        "training_seconds": 210.3324556999869,
+        "prediction_seconds": 1.1347393000032753
+      },
+      {
+        "candidate": "tweedie_p1_5_d6_lr0_03",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 6, \"learning_rate\": 0.03, \"variance_power\": 1.5}",
+        "iterations": "{\"tweedie\": 1481}",
+        "validation_state_mae": 1.2477821096619781,
+        "validation_state_rmse": 2.3081495637697405,
+        "validation_state_r2": 0.9070451702684772,
+        "validation_system_mae": 0.0026558035572277973,
+        "validation_system_rmse": 0.018594269314242098,
+        "validation_system_r2": 0.2708159288691433,
+        "training_seconds": 203.41689380000753,
+        "prediction_seconds": 1.034331500006374
+      },
+      {
+        "candidate": "hurdle_classifier_d6_lr0_05_magnitude_d5_lr0_05",
+        "family": "hurdle",
+        "configuration": "{\"classifier_depth\": 6, \"classifier_learning_rate\": 0.05, \"magnitude_depth\": 5, \"magnitude_learning_rate\": 0.05}",
+        "iterations": "{\"classifier\": 328, \"magnitude\": 212}",
+        "validation_state_mae": 1.4114057570574878,
+        "validation_state_rmse": 2.3214884768794555,
+        "validation_state_r2": 0.9059676844883253,
+        "validation_system_mae": 0.0027943326351658844,
+        "validation_system_rmse": 0.01821937417326545,
+        "validation_system_r2": 0.2999229360495409,
+        "training_seconds": 9.007378200010862,
+        "prediction_seconds": 0.7739771999913501
+      },
+      {
+        "candidate": "tweedie_p1_7_d7_lr0_03",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 7, \"learning_rate\": 0.03, \"variance_power\": 1.7}",
+        "iterations": "{\"tweedie\": 753}",
+        "validation_state_mae": 1.3073139997480332,
+        "validation_state_rmse": 2.333961134356524,
+        "validation_state_r2": 0.9049545556156202,
+        "validation_system_mae": 0.0026032517506341,
+        "validation_system_rmse": 0.018435327421210877,
+        "validation_system_r2": 0.28322863012244204,
+        "training_seconds": 135.5443760999915,
+        "prediction_seconds": 0.9513366999890422
+      },
+      {
+        "candidate": "tweedie_p1_7_d6_lr0_05",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 6, \"learning_rate\": 0.05, \"variance_power\": 1.7}",
+        "iterations": "{\"tweedie\": 515}",
+        "validation_state_mae": 1.2954427297033924,
+        "validation_state_rmse": 2.3470290053053637,
+        "validation_state_r2": 0.9038872553211796,
+        "validation_system_mae": 0.0026091452472151847,
+        "validation_system_rmse": 0.018607593297257627,
+        "validation_system_r2": 0.2697705404269307,
+        "training_seconds": 107.79208369999833,
+        "prediction_seconds": 1.0741408999892883
+      },
+      {
+        "candidate": "hurdle_classifier_d6_lr0_05_magnitude_d6_lr0_05",
+        "family": "hurdle",
+        "configuration": "{\"classifier_depth\": 6, \"classifier_learning_rate\": 0.05, \"magnitude_depth\": 6, \"magnitude_learning_rate\": 0.05}",
+        "iterations": "{\"classifier\": 328, \"magnitude\": 193}",
+        "validation_state_mae": 1.4169463235947606,
+        "validation_state_rmse": 2.3769873455834887,
+        "validation_state_r2": 0.9014179590110192,
+        "validation_system_mae": 0.002791109545792554,
+        "validation_system_rmse": 0.018233201238817415,
+        "validation_system_r2": 0.29885992647033877,
+        "training_seconds": 10.159456299996236,
+        "prediction_seconds": 0.7845352000003913
+      },
+      {
+        "candidate": "tweedie_p1_7_d5_lr0_05",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 5, \"learning_rate\": 0.05, \"variance_power\": 1.7}",
+        "iterations": "{\"tweedie\": 640}",
+        "validation_state_mae": 1.2970155230440568,
+        "validation_state_rmse": 2.382880060676168,
+        "validation_state_r2": 0.9009285698292953,
+        "validation_system_mae": 0.0026344114438525837,
+        "validation_system_rmse": 0.0186493994239612,
+        "validation_system_r2": 0.26648560627235485,
+        "training_seconds": 104.19674899999518,
+        "prediction_seconds": 0.9165823999937857
+      },
+      {
+        "candidate": "tweedie_p1_7_d7_lr0_02",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 7, \"learning_rate\": 0.02, \"variance_power\": 1.7}",
+        "iterations": "{\"tweedie\": 1212}",
+        "validation_state_mae": 1.3623109330008782,
+        "validation_state_rmse": 2.433397769074499,
+        "validation_state_r2": 0.8966833592369632,
+        "validation_system_mae": 0.0026150912532027794,
+        "validation_system_rmse": 0.0184484721976822,
+        "validation_system_r2": 0.2822061195704575,
+        "training_seconds": 215.19675339999958,
+        "prediction_seconds": 1.0540637000085553
+      },
+      {
+        "candidate": "tweedie_p1_9_d6_lr0_03",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 6, \"learning_rate\": 0.03, \"variance_power\": 1.9}",
+        "iterations": "{\"tweedie\": 540}",
+        "validation_state_mae": 1.3026625528742628,
+        "validation_state_rmse": 2.447244512827592,
+        "validation_state_r2": 0.8955042102039172,
+        "validation_system_mae": 0.002628339989766329,
+        "validation_system_rmse": 0.018627381566496456,
+        "validation_system_r2": 0.26821658765671796,
+        "training_seconds": 96.61748850000731,
+        "prediction_seconds": 0.9455699999962235
+      },
+      {
+        "candidate": "tweedie_p1_7_d7_lr0_05",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 7, \"learning_rate\": 0.05, \"variance_power\": 1.7}",
+        "iterations": "{\"tweedie\": 448}",
+        "validation_state_mae": 1.397850563975508,
+        "validation_state_rmse": 2.5769551644817446,
+        "validation_state_r2": 0.8841335259913643,
+        "validation_system_mae": 0.0025884424638365805,
+        "validation_system_rmse": 0.018544075909263248,
+        "validation_system_r2": 0.2747473371328979,
+        "training_seconds": 92.40553240000736,
+        "prediction_seconds": 0.9027948000002652
+      },
+      {
+        "candidate": "tweedie_p1_1_d6_lr0_03",
+        "family": "direct_tweedie",
+        "configuration": "{\"depth\": 6, \"learning_rate\": 0.03, \"variance_power\": 1.1}",
+        "iterations": "{\"tweedie\": 1498}",
+        "validation_state_mae": 1.7866419577965431,
+        "validation_state_rmse": 2.7419980830179784,
+        "validation_state_r2": 0.8688167580059551,
+        "validation_system_mae": 0.0030015126291212534,
+        "validation_system_rmse": 0.018617945353358614,
+        "validation_system_r2": 0.26895780994811447,
+        "training_seconds": 199.3508942000044,
+        "prediction_seconds": 1.0324318000057247
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-labelledby="t d">
+<title id="t">SAIFI Log-CatBoost workflow</title><desc id="d">Outage history is log transformed, passed through a tree ensemble, and converted to non-negative SAIFI.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#D9859E"/></marker>
+<style>.n{fill:#160F15;stroke:#FFD100;stroke-width:3}.f{fill:none;stroke:#D9859E;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#a)}.tr{fill:none;stroke:#D9859E;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.l{fill:#E8DDE2;font:600 16px Arial,Helvetica,sans-serif;text-anchor:middle}</style></defs>
+<rect class="n" x="14" y="64" width="132" height="64" rx="12"/><text class="l" x="80" y="91"><tspan x="80">outage</tspan><tspan x="80" dy="21">history</tspan></text>
+<path class="f" d="M146 96H197"/><rect class="n" x="200" y="64" width="126" height="64" rx="12"/><text class="l" x="263" y="102">log1p</text><path class="f" d="M326 96H375"/>
+<path class="tr" d="M390 133V69L417 49L444 69V133"/><path class="tr" d="M452 133V48L483 24L514 48V133"/><path class="tr" d="M522 133V67L549 47L576 67V133"/>
+<path class="f" d="M576 96H617"/><rect class="n" x="620" y="64" width="126" height="64" rx="12"/><text class="l" x="683" y="91"><tspan x="683">SAIFI</tspan><tspan x="683" dy="21">≥ 0</tspan></text>
+</svg>

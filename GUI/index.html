@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0E1012">
+  <meta name="description" content="State-level electricity and water stress baseline scenarios.">
+  <title>U.S. Infrastructure Stress Monitor</title>
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <svg viewBox="0 0 42 42" aria-hidden="true">
+        <path d="M7 31V11h7v20M18 31V17h7v14M29 31V7h7v24M4 34h34"/>
+      </svg>
+      <div>
+        <span>FROZEN MODEL OBSERVATORY</span>
+        <strong>U.S. Infrastructure Stress Monitor</strong>
+      </div>
+    </div>
+    <div class="system-status">
+      <i></i><span>LOCAL DATA READY</span><b></b><span>OBSERVED THROUGH 2024</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="kicker">ELECTRICITY RELIABILITY × WATER SECURITY</p>
+        <h1>Project state infrastructure stress with a frozen, chronologically evaluated ML system.</h1>
+        <p class="intro">
+          Explore baseline scenarios for outage duration, interruption frequency,
+          drought severity and drinking-water compliance. The interface runs entirely
+          from the supplied frozen project outputs.
+        </p>
+      </div>
+      <dl class="hero-meta">
+        <div><dt>MODEL FAMILY</dt><dd>4 linked pipelines</dd></div>
+        <div><dt>SPATIAL UNIT</dt><dd>50 states + D.C.</dd></div>
+        <div><dt>SCENARIO LIMIT</dt><dd>2050</dd></div>
+      </dl>
+    </section>
+
+    <section class="pipeline" aria-label="Projection pipeline">
+      <article><span>INPUT_01</span><b>State</b><small>Geographic context</small></article>
+      <i>→</i>
+      <article><span>INPUT_02</span><b>Future year</b><small>Recursive horizon</small></article>
+      <i>→</i>
+      <article><span>DATA ENGINE</span><b>Historical signals</b><small>Observed + out-of-sample</small></article>
+      <i>→</i>
+      <article><span>MODEL ENGINE</span><b>Four pipelines</b><small>Frozen deployment set</small></article>
+      <i>→</i>
+      <article><span>OUTPUT</span><b>Stress scores</b><small>Electricity + water</small></article>
+    </section>
+
+    <div class="workspace">
+      <aside class="control-rail">
+        <section>
+          <div class="section-title"><i></i><h2>Projection controls</h2></div>
+          <form id="projection-form">
+            <label>
+              <span>STATE / TERRITORY</span>
+              <select id="state-select" required></select>
+            </label>
+            <label>
+              <span>FUTURE YEAR</span>
+              <div class="year-wrap">
+                <input id="year-input" type="number" min="2025" max="2050" value="2030" required>
+                <small id="horizon-label">+6 years</small>
+              </div>
+            </label>
+            <button type="submit">RUN BASELINE PROJECTION <span>→</span></button>
+          </form>
+        </section>
+
+        <section>
+          <div class="section-title"><i></i><h2>Model provenance</h2></div>
+          <dl class="provenance">
+            <div><dt>Training status</dt><dd id="training-status">—</dd></div>
+            <div><dt>Latest observation</dt><dd id="latest-observation">—</dd></div>
+            <div><dt>Evaluation policy</dt><dd>Chronological holdout</dd></div>
+            <div><dt>Projection mode</dt><dd>Recursive baseline</dd></div>
+          </dl>
+          <div class="verified"><i>✓</i><p><strong>Frozen artifacts included</strong><small>Original model and metadata files remain in the package.</small></p></div>
+        </section>
+
+        <section>
+          <div class="section-title"><i></i><h2>Interpretation</h2></div>
+          <p class="warning" id="warning-text"></p>
+        </section>
+      </aside>
+
+      <section class="results" id="results" tabindex="-1">
+        <header class="results-header">
+          <div><span>SCENARIO OUTPUT</span><h2><b id="result-state">California</b> · <b id="result-year">2030</b></h2></div>
+          <div class="scenario"><span>BASELINE</span><strong id="scenario-horizon">06Y</strong></div>
+        </header>
+
+        <div id="error-banner" class="error-banner" hidden></div>
+
+        <div class="stress-grid">
+          <article class="stress-card electricity">
+            <i class="topline"></i>
+            <header><div><span>ELECTRICITY STRESS</span><h3>Reliability pressure</h3></div><b id="electricity-band">—</b></header>
+            <div class="score"><strong id="electricity-score">—</strong><span>/ 100</span><em id="electricity-change">—</em></div>
+            <div class="range"><span>Approximate range</span><b id="electricity-range">—</b></div>
+            <div class="scorebar"><i id="electricity-bar"></i></div>
+            <div class="submetrics">
+              <div><span>SAIDI</span><strong id="saidi-value">—</strong><small>min/customer</small></div>
+              <div><span>SAIFI</span><strong id="saifi-value">—</strong><small>interruptions/customer</small></div>
+              <div><span>NATIONAL RANK</span><strong id="electricity-rank">—</strong><small>highest stress first</small></div>
+            </div>
+          </article>
+
+          <article class="stress-card water">
+            <i class="topline"></i>
+            <header><div><span>WATER STRESS</span><h3>Availability + compliance</h3></div><b id="water-band">—</b></header>
+            <div class="score"><strong id="water-score">—</strong><span>/ 100</span><em id="water-change">—</em></div>
+            <div class="range"><span>Approximate range</span><b id="water-range">—</b></div>
+            <div class="scorebar"><i id="water-bar"></i></div>
+            <div class="submetrics">
+              <div><span>DROUGHT</span><strong id="drought-value">—</strong><small>severity / 100</small></div>
+              <div><span>COMPLIANCE</span><strong id="compliance-value">—</strong><small>rate / 100k</small></div>
+              <div><span>NATIONAL RANK</span><strong id="water-rank">—</strong><small>highest stress first</small></div>
+            </div>
+          </article>
+        </div>
+
+        <article class="chart-panel">
+          <header>
+            <div><span>STATE SIGNAL TRACE</span><h3>Observed history and recursive scenario</h3></div>
+            <div class="legend"><span><i class="e"></i>Electricity</span><span><i class="w"></i>Water</span><span><i class="p"></i>Projected</span></div>
+          </header>
+          <div class="chart-scroll">
+            <svg id="trend-chart" viewBox="0 0 920 360" role="img" aria-label="Electricity and water stress over time"></svg>
+          </div>
+        </article>
+
+        <div class="breakdown-grid">
+          <article class="breakdown electricity-breakdown">
+            <header><span>01</span><h3>Electricity composition</h3></header>
+            <div><span>Duration stress</span><b><i id="duration-fill"></i></b><strong id="duration-stress">—</strong></div>
+            <div><span>Frequency stress</span><b><i id="frequency-fill"></i></b><strong id="frequency-stress">—</strong></div>
+          </article>
+          <article class="breakdown water-breakdown">
+            <header><span>02</span><h3>Water composition</h3></header>
+            <div><span>Drought stress</span><b><i id="drought-fill"></i></b><strong id="drought-stress">—</strong></div>
+            <div><span>Compliance stress</span><b><i id="compliance-fill"></i></b><strong id="compliance-stress">—</strong></div>
+          </article>
+        </div>
+
+
+        <section class="model-explainer" aria-labelledby="model-explainer-title">
+          <div class="model-explainer-heading">
+            <span>HOW EACH FINAL MODEL WORKS</span>
+            <h2 id="model-explainer-title">Four frozen pipelines, one consistent visual grammar</h2>
+          </div>
+
+          <div class="model-workflow-grid">
+            <article class="model-workflow model-electricity workflow-saidi">
+              <header><span>01 / ELECTRICITY DURATION</span><h3>SAIDI · Two-stage CatBoost</h3></header>
+              <figure><img src="static/diagrams/saidi-workflow.svg" alt="Features and history flow to severe probability, split into normal and extreme models, and merge into weighted SAIDI."></figure>
+              <p>The first stage estimates whether the year behaves like a severe-event period. Separate normal and extreme CatBoost regressors are blended by that probability, allowing routine outages and disaster-driven events to follow different patterns.</p>
+            </article>
+
+            <article class="model-workflow model-electricity workflow-saifi">
+              <header><span>02 / ELECTRICITY FREQUENCY</span><h3>SAIFI · Log-CatBoost</h3></header>
+              <figure><img src="static/diagrams/saifi-workflow.svg" alt="Outage history is log transformed, passed through a tree ensemble, and converted to non-negative SAIFI."></figure>
+              <p>SAIFI is non-negative and strongly right-skewed. A <code>log1p</code> transformation reduces the influence of extremes, CatBoost learns nonlinear patterns, and the result is converted back to the interruption-frequency scale.</p>
+            </article>
+
+            <article class="model-workflow model-water workflow-drought">
+              <header><span>03 / WATER AVAILABILITY</span><h3>Drought · ANOVA + Ridge</h3></header>
+              <figure><img src="static/diagrams/drought-workflow.svg" alt="Climate and lag features pass through ANOVA top twenty selection and Ridge regression to produce zero to one hundred drought."></figure>
+              <p>ANOVA retains the twenty climate, seasonal and historical features most strongly related to drought. Ridge combines those signals while limiting overly large coefficients, producing a more stable 0–100 severity estimate.</p>
+            </article>
+
+            <article class="model-workflow model-water workflow-compliance">
+              <header><span>04 / WATER COMPLIANCE</span><h3>Compliance · CatBoost Tweedie</h3></header>
+              <figure><img src="static/diagrams/compliance-workflow.svg" alt="Water systems pass through Tweedie boosted trees, aggregate as system predictions, and produce a state violation rate."></figure>
+              <p>Most public-water systems report zero health-based violations, while a smaller group reports larger values. Tweedie CatBoost models this non-negative, zero-heavy pattern; system predictions are combined into a state-level rate.</p>
+            </article>
+          </div>
+
+          <div class="stress-formula-grid" aria-label="Final stress score formulas">
+            <article class="electricity-formula"><span>ELECTRICITY STRESS</span><strong>50% outage duration + 50% outage frequency</strong></article>
+            <article class="water-formula"><span>WATER STRESS</span><strong>50% drought severity + 50% compliance risk</strong></article>
+          </div>
+        </section>
+
+        <section class="technical">
+          <div class="section-title"><i></i><h2>Frozen model registry</h2></div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>TARGET</th><th>DEPLOYED MODEL</th><th>BACKTEST MAE</th><th>BACKTEST RMSE</th><th>R²</th></tr></thead>
+              <tbody id="model-table"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="technical">
+          <div class="section-title"><i></i><h2>Main historical inputs</h2></div>
+          <div class="input-grid">
+            <article><h3>Electricity</h3><ol id="electricity-inputs"></ol></article>
+            <article><h3>Water</h3><ol id="water-inputs"></ol></article>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <footer><span>U.S. INFRASTRUCTURE STRESS MONITOR</span><span>Local frozen-model interface · Research use</span></footer>
+
+  <noscript><div class="noscript">JavaScript is required to display the projections.</div></noscript>
+  <script src="static/data.js"></script>
+  <script src="static/app.js"></script>
+</body>
+</html>

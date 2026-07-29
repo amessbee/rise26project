@@ -1,0 +1,16 @@
+U.S. INFRASTRUCTURE STRESS MONITOR
+=====================================
+
+ONLINE — NO INSTALLATION
+https://amessbee.github.io/rise26project/
+
+WINDOWS LOCAL
+Double-click START_GUI_WINDOWS.bat
+
+MAC LOCAL
+In Terminal:
+  chmod +x START_GUI_MAC.command
+  ./START_GUI_MAC.command
+
+Local address:
+http://127.0.0.1:8081
