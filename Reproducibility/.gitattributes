@@ -1,0 +1,7 @@
+# Keep binary documents and model objects out of text conversion and diffs.
+*.pdf binary
+saved_models/*.cbm binary
+saved_models/*.joblib binary
+
+# Preserve frozen artifacts byte-for-byte so SHA256SUMS remains valid.
+saved_models/** -text

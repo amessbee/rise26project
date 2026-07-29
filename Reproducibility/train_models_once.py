@@ -59,26 +59,25 @@ except ImportError as error:  # pragma: no cover - import already required above
 
 
 # -----------------------------------------------------------------------------
-# Fixed project paths and chronological periods
+# Portable project paths and chronological periods
 # -----------------------------------------------------------------------------
 
+PROJECT_FOLDER = Path(__file__).resolve().parent
+DATA_FOLDER = PROJECT_FOLDER / "data"
+MODEL_FOLDER = PROJECT_FOLDER / "saved_models"
+
 ELECTRICITY_FILE = (
-    r"D:\RISE_Project\Feature_CSVs"
-    r"\electricity_features_final_sequence_2013_2024.csv"
+    DATA_FOLDER / "electricity_features_final_sequence_2013_2024.csv"
 )
 
 DROUGHT_FILE = (
-    r"D:\RISE_Project\Feature_CSVs"
-    r"\water_drought_features_county_week_2010_2024.csv"
+    DATA_FOLDER / "water_drought_features_county_week_2010_2024.csv"
 )
 
 COMPLIANCE_FILE = (
-    r"D:\RISE_Project\Feature_CSVs"
-    r"\water_compliance_features_public_water_system_year_2010_2024.csv"
+    DATA_FOLDER
+    / "water_compliance_features_public_water_system_year_2010_2024.csv"
 )
-
-PROJECT_FOLDER = Path(__file__).resolve().parent
-MODEL_FOLDER = PROJECT_FOLDER / "saved_models"
 
 RANDOM_SEED = 67
 TRAIN_END_YEAR = 2018

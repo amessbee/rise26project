@@ -1,5 +1,6 @@
-pandas==2.2.3
-numpy==2.3.5
-scikit-learn==1.8.0
-catboost==1.2.8
+pandas==3.0.5
+numpy==2.5.1
+scikit-learn==1.9.0
+catboost==1.2.10
 joblib==1.5.3
+gdown>=5.2.0,<6

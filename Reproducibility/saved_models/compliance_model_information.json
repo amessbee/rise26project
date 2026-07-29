@@ -1,0 +1,588 @@
+{
+  "model_label": "CatBoost direct Tweedie",
+  "family": "direct_tweedie",
+  "winning_candidate": "tweedie_p1_7_d6_lr0_03",
+  "configuration": {
+    "variance_power": 1.7,
+    "depth": 6,
+    "learning_rate": 0.03
+  },
+  "iterations": {
+    "tweedie": 937
+  },
+  "model_files": {
+    "tweedie": "compliance_tweedie.cbm"
+  },
+  "numeric_features": [
+    "previous_year_health_based_violation_rate_contribution_per_100000_state_residents",
+    "previous_year_unique_violation_count",
+    "previous_year_major_violation_count",
+    "previous_year_unique_contaminant_count",
+    "previous_year_state_drought_severity_0_100",
+    "previous_year_state_precipitation_inches_annual_total",
+    "previous_year_state_temperature_f_annual_mean",
+    "previous_year_state_population_persons",
+    "previous_year_state_poverty_rate_pct",
+    "previous_year_state_real_gdp_per_capita_2017_usd",
+    "previous_year_had_health_based_violation_flag",
+    "previous_3_year_total_health_based_violation_count",
+    "previous_3_year_mean_unique_violation_count",
+    "previous_3_year_mean_major_violation_count",
+    "previous_3_year_max_unique_contaminant_count",
+    "previous_year_health_based_violation_count_change",
+    "years_since_previous_health_based_violation",
+    "previous_year_state_pdsi_annual_mean",
+    "previous_year_state_spi12_annual_mean",
+    "previous_year_state_climate_index_missing_flag",
+    "previous_year_state_population_growth_rate",
+    "previous_year_state_median_household_income_usd",
+    "structural_context_aqueduct_baseline_water_stress_score",
+    "structural_context_aqueduct_baseline_water_depletion_score",
+    "structural_context_aqueduct_seasonal_variability_score",
+    "structural_context_aqueduct_drought_risk_score",
+    "structural_context_aqueduct_untreated_connected_wastewater_score",
+    "year_index",
+    "state_year_system_count_feature"
+  ],
+  "categorical_features": [
+    "state_abbreviation",
+    "master_record_type"
+  ],
+  "prediction_cap_from_selection_training": 5.042016806722689,
+  "target": "target_health_based_violation_rate_contribution_per_100000_state_residents",
+  "residual_treatment": {
+    "residual_row_count": 145,
+    "selection": {
+      "fit_end_year": 2018,
+      "strategy": "Synthetic residual rows are excluded from the PWS CatBoost model. Each predicted state-year receives the state's mean residual contribution over its latest three observed training years; unseen states use the training-period global mean.",
+      "global_fallback": 0.01758583214942371
+    },
+    "backtest": {
+      "fit_end_year": 2020,
+      "strategy": "Synthetic residual rows are excluded from the PWS CatBoost model. Each predicted state-year receives the state's mean residual contribution over its latest three observed training years; unseen states use the training-period global mean.",
+      "global_fallback": 0.015652628248025376
+    },
+    "deployment": {
+      "fit_end_year": 2024,
+      "strategy": "Synthetic residual rows are excluded from the PWS CatBoost model. Each predicted state-year receives the state's mean residual contribution over its latest three observed training years; unseen states use the training-period global mean.",
+      "global_fallback": 0.013331996469637956,
+      "state_values": [
+        {
+          "state_fips": "35",
+          "state_abbreviation": "NM",
+          "residual_prediction": 0.07887679444707367,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "27",
+          "state_abbreviation": "MN",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "33",
+          "state_abbreviation": "NH",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "25",
+          "state_abbreviation": "MA",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "39",
+          "state_abbreviation": "OH",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "56",
+          "state_abbreviation": "WY",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "19",
+          "state_abbreviation": "IA",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "29",
+          "state_abbreviation": "MO",
+          "residual_prediction": 0.005371146202599633,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "38",
+          "state_abbreviation": "ND",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "53",
+          "state_abbreviation": "WA",
+          "residual_prediction": 0.008409014463504868,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "50",
+          "state_abbreviation": "VT",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "34",
+          "state_abbreviation": "NJ",
+          "residual_prediction": 0.0105981148826602,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "48",
+          "state_abbreviation": "TX",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "37",
+          "state_abbreviation": "NC",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "45",
+          "state_abbreviation": "SC",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "16",
+          "state_abbreviation": "ID",
+          "residual_prediction": 0.0166583374979177,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "26",
+          "state_abbreviation": "MI",
+          "residual_prediction": 0.009956192751891666,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "09",
+          "state_abbreviation": "CT",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "46",
+          "state_abbreviation": "SD",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "55",
+          "state_abbreviation": "WI",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "49",
+          "state_abbreviation": "UT",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "41",
+          "state_abbreviation": "OR",
+          "residual_prediction": 0.06269928877731873,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "36",
+          "state_abbreviation": "NY",
+          "residual_prediction": 0.015089372045438934,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "06",
+          "state_abbreviation": "CA",
+          "residual_prediction": 0.0068132826417381,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "42",
+          "state_abbreviation": "PA",
+          "residual_prediction": 0.030776032853303437,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "22",
+          "state_abbreviation": "LA",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "08",
+          "state_abbreviation": "CO",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "54",
+          "state_abbreviation": "WV",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "24",
+          "state_abbreviation": "MD",
+          "residual_prediction": 0.005391126206264467,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "01",
+          "state_abbreviation": "AL",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "40",
+          "state_abbreviation": "OK",
+          "residual_prediction": 0.008134049129656732,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "31",
+          "state_abbreviation": "NE",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "51",
+          "state_abbreviation": "VA",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "04",
+          "state_abbreviation": "AZ",
+          "residual_prediction": 0.004411505205576133,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "44",
+          "state_abbreviation": "RI",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "20",
+          "state_abbreviation": "KS",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "47",
+          "state_abbreviation": "TN",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "28",
+          "state_abbreviation": "MS",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "23",
+          "state_abbreviation": "ME",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "12",
+          "state_abbreviation": "FL",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "21",
+          "state_abbreviation": "KY",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "32",
+          "state_abbreviation": "NV",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "02",
+          "state_abbreviation": "AK",
+          "residual_prediction": 0.1359313512831636,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "05",
+          "state_abbreviation": "AR",
+          "residual_prediction": 0.02153316106804477,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "18",
+          "state_abbreviation": "IN",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "13",
+          "state_abbreviation": "GA",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "17",
+          "state_abbreviation": "IL",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "30",
+          "state_abbreviation": "MT",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "15",
+          "state_abbreviation": "HI",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "10",
+          "state_abbreviation": "DE",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        },
+        {
+          "state_fips": "11",
+          "state_abbreviation": "DC",
+          "residual_prediction": 0.0,
+          "years_used": [
+            2022,
+            2023,
+            2024
+          ]
+        }
+      ]
+    }
+  },
+  "classifier_diagnostics": null,
+  "deployment_year_range": [
+    2010,
+    2024
+  ]
+}

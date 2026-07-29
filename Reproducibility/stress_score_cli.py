@@ -1,3 +1,13 @@
+"""
+Interactive state-and-year stress scenario tool.
+
+This program reads the frozen out-of-sample model-signal history and project
+metadata in saved_models/. Future values are damped recursive baseline
+scenarios derived from recent model-signal trends. They are not direct
+CatBoost or Ridge forecasts using unknown future weather, population, demand,
+or infrastructure.
+"""
+
 import json
 import math
 import os
@@ -48,8 +58,9 @@ def main():
             information = json.load(file)
 
     except FileNotFoundError:
-        print("The trained model files were not found.")
-        print("Run this first: py -3.13 train_models_once.py")
+        print("The saved model package was not found.")
+        print("Restore the included saved_models folder or retrain with:")
+        print("py -3.13 train_models_once.py --force")
         return
 
     try:

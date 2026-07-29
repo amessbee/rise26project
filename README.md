@@ -1,40 +1,175 @@
-# Project Overview
+# Forecasting Electricity and Water Stress Across U.S. States Using Machine Learning
 
-This project trains, validates, and freezes four machine learning models that estimate infrastructure and environmental stress across U.S. states over time:
+Final research project for the **LUMS Research Internship in Science and
+Engineering (RISE), Computer Science, Summer 2026**.
 
-- **Electrical grid reliability** — SAIDI (outage duration) and SAIFI (outage frequency) per customer
-- **Drought severity** — a 0-100 severity score at the county/state level
-- **Drinking water compliance** — health-based violation rates for public water systems
+**Authors:** Muhammad Zunair Ali Khan, Sheza Imran and Mohammad Shaffay Asif  
+**Faculty supervisor:** Dr. Mudassir Shabbir  
+**Research mentors:** Danish Javed and Uzayr Husnain
 
-The models are built from three separate feature datasets (electricity, drought, and water compliance - sourced and described in the Reproducibility section) and produce state-year level predictions that can be used to track historical stress trends and generate short-term baseline projections. All four pipelines are trained, evaluated, and saved in a single run, producing a self-contained `saved_models/` folder with the trained artifacts, performance metrics, and prediction history that downstream tools (like the CLI scorer and GUI) read from.
+## Project overview
 
-# What's in the Repository
+This project combines public electricity reliability, climate, drought,
+population and drinking-water compliance records into two comparable
+state-level indicators:
 
-- **`train_models_once.py`** - the main training script. Runs all four pipelines end to end, evaluates them chronologically, and saves the final models, metrics, and prediction histories into `saved_models/`.
-- **`stress_score_cli.py`** - a command-line tool that loads the saved models and produces stress scores/projections without retraining anything.
-- **A GUI file** - a graphical interface for exploring the stress scores/projections without using the command line.
-- **`saved_models/`** - the output folder created by `train_models_once.py`. Contains the trained model artifacts (`.cbm`, `.joblib`), prediction history CSVs, evaluation metrics, feature schemas, and a `training_complete.json` marker confirming a full run finished successfully.
-- **`reproducibility/`** - everything needed for someone else to reproduce these results from scratch: a step-by-step walkthrough of the full process (downloading the raw data, generating the feature CSVs, training the models, and reproducing the reported metrics), a script that downloads the source CSVs, and the project's dependency requirements.
+- **Electricity stress:** 50% outage-duration stress (SAIDI) and 50%
+  outage-frequency stress (SAIFI).
+- **Water stress:** 50% drought severity and 50% drinking-water compliance
+  stress.
 
-# Models & Methodology
+The project began from the practical problem of electricity unreliability and
+water insecurity in Pakistan. Because consistent machine-readable local
+history was limited, the modeling study uses granular U.S. public records as a
+test bed for the framework.
 
-**SAIDI** is predicted with a two-stage CatBoost approach: a classifier first flags high-severity outage years, then separate CatBoost regressors are trained on the normal and high subsets. Final predictions blend the two regressors' outputs, weighted by the classifier's probability.
+## Open the GUI
 
-**SAIFI** uses a single log-CatBoost regressor - a CatBoost model trained on log-transformed outage-frequency targets, with predictions exponentiated back to the original scale.
+[**Download the one-file U.S. Infrastructure Stress Monitor**](./Infrastructure_Stress_Monitor.html?raw=1)
 
-**Drought** severity is modeled with ANOVA SelectKBest feature selection followed by Ridge regression. Candidate features are ranked by their univariate correlation with the target using an ANOVA F-test, the strongest ones are kept, and a Ridge regression is fit on the standardized, imputed feature set.
+Download `Infrastructure_Stress_Monitor.html` and double-click it. The GUI:
 
-**Compliance** violation rates are modeled by letting two candidate approaches compete on the validation split and keeping whichever performs better: a single CatBoost regressor trained with a Tweedie loss, suited to zero-inflated, right-skewed rate data, versus a two-part hurdle model that pairs a classifier predicting whether a violation occurs with a regressor predicting its magnitude if so. The winning family is the one actually deployed.
+- works offline in a normal browser;
+- requires no Python installation or local server;
+- includes frozen observed and baseline-scenario values;
+- supports all 50 states plus Washington, D.C., for 2025-2050.
 
-Across all four, only leakage-safe features are used. Columns that wouldn't be known at prediction time, such as the targets themselves or same-period outcome variables, are explicitly excluded during feature preparation, and this exclusion is checked by an automated audit before training.
+The GUI uses precomputed outputs from the final frozen run. It does not execute
+CatBoost or Ridge models inside the browser.
 
-# Chronological Evaluation Policy
+## Final models and held-out results
 
-Models are trained and scored using chronological splits rather than random ones, so reported performance reflects how they'd actually perform on real future data - earlier years are used for training/selection, and only later, untouched years are used to measure final accuracy. Because of this, the historical "predicted" columns in the output CSVs are genuinely out-of-sample, and years too early to have an out-of-sample prediction are intentionally left null rather than filled with in-sample fits.
+Model selection used 2019-2020 validation data. Final evaluation used an
+untouched 2021-2024 state-year backtest after refitting through 2020.
 
-<!-- ONE_FILE_GUI -->
-## One-file offline GUI
+| Target | Final model | MAE | RMSE | R² |
+|---|---|---:|---:|---:|
+| SAIDI | Two-stage CatBoost high/normal probability-weighted blend | 240.555 | 466.147 | 0.083 |
+| SAIFI | Log-CatBoost regressor | 0.219 | 0.305 | 0.660 |
+| Drought | ANOVA SelectKBest (top 20) plus Ridge regression | 0.469 | 0.582 | 0.999 |
+| Compliance | CatBoost direct Tweedie | 1.648 | 3.406 | 0.805 |
 
-[Download the U.S. Infrastructure Stress Monitor](./Infrastructure_Stress_Monitor.html?raw=1)
+Compliance is measured as the state health-based violation burden per
+**100,000 residents**.
 
-Download the HTML file, then double-click it. It runs offline in a browser and uses the frozen precomputed projections.
+R² is not percentage accuracy. Drought's high held-out R² reflects a
+short-horizon, lag-rich state-year backtest and should not be interpreted as
+proof of nearly perfect distant-future forecasts.
+
+## Chronological evaluation policy
+
+| Stage | Years | Purpose |
+|---|---|---|
+| Selection training | Through 2018 | Learn candidate models and preprocessing |
+| Validation | 2019-2020 | Choose settings and the compliance model family |
+| Evaluation refit | Through 2020 | Refit without using backtest outcomes |
+| Untouched backtest | 2021-2024 | Report final held-out performance |
+| Deployment refit | All observed years | Save artifacts for reuse |
+
+Historical predicted columns are genuinely out of sample: 2019-2020 signals
+come from models trained through 2018, and 2021-2024 signals come from frozen
+evaluation models refitted through 2020. Earlier predicted values are left
+null rather than replaced with in-sample fits.
+
+## Two reproducibility routes
+
+### A. Use the included trained models
+
+The repository includes `Reproducibility/saved_models/`. This is the quickest
+route and does not require the multi-gigabyte training CSVs:
+
+```powershell
+git clone https://github.com/amessbee/rise26project.git
+Set-Location ".\rise26project\Reproducibility"
+py -3.13 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python stress_score_cli.py
+```
+
+### B. Retrain all four pipelines
+
+The downloader retrieves the three frozen model-ready CSVs from the project's
+public Google Drive folder into `Reproducibility/data/`:
+
+```powershell
+Set-Location ".\rise26project\Reproducibility"
+.\.venv\Scripts\Activate.ps1
+python csv_downloader.py
+python train_models_once.py --force
+python stress_score_cli.py
+```
+
+Training is resource-intensive because the drought and compliance tables
+contain millions of records.
+
+## What the two Python programs do
+
+### `train_models_once.py`
+
+- validates the three model-ready tables and audits leakage;
+- trains the four final pipelines with chronological splits;
+- aggregates utility, county and water-system predictions to state-year;
+- saves model objects, held-out histories, metrics, feature schemas and
+  metadata into `saved_models/`;
+- records package versions, input fingerprints and the final-run status.
+
+### `stress_score_cli.py`
+
+The CLI does **not** run the CatBoost and Ridge models against unknown future
+features. It reads the frozen out-of-sample state-year model-signal history,
+measures each state's recent direction, predicts one year at a time, halves
+the trend after each step and pulls values gradually toward historical
+conditions.
+
+These are **damped recursive baseline scenarios**, not forecasts with known
+future weather, population, demand, regulation or infrastructure. Approximate
+ranges use held-out RMSE and are not formally calibrated prediction intervals.
+
+## Repository structure
+
+```text
+rise26project/
+|-- Infrastructure_Stress_Monitor.html
+|-- README.md
+`-- Reproducibility/
+    |-- README.md
+    |-- Beginner_Reproducibility_Guide.pdf
+    |-- Beginner_Reproducibility_Guide.md
+    |-- requirements.txt
+    |-- csv_downloader.py
+    |-- train_models_once.py
+    |-- stress_score_cli.py
+    `-- saved_models/
+        |-- training_complete.json
+        |-- evaluation_metrics.json
+        |-- project_metadata.json
+        |-- feature_schema.json
+        |-- state_model_history.csv
+        `-- model artifacts and supporting histories
+```
+
+## Data sources
+
+The model-ready tables were assembled from public records including EIA-861,
+EIA electricity data, NOAA/NCEI climate and Storm Events, Eagle-I outage
+records, the U.S. Drought Monitor, U.S. Census and BEA socioeconomic data,
+EPA SDWIS drinking-water records and WRI Aqueduct context.
+
+The reproducibility download contains frozen model-ready tables so results do
+not change when external government sources are revised. Rebuilding every
+table from raw sources additionally requires the exact source snapshots and
+separate data-engineering code; that broader raw-source package is outside
+this repository.
+
+## Detailed guide
+
+- [Read the designed PDF guide](./Reproducibility/Beginner_Reproducibility_Guide.pdf)
+- [Read or edit the Markdown guide](./Reproducibility/Beginner_Reproducibility_Guide.md)
+
+## Research-use warning
+
+The scores support comparison and scenario exploration. They are not official
+utility, public-health or emergency-management forecasts and should not be
+used as the sole basis for operational decisions.
