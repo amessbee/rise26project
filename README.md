@@ -31,3 +31,10 @@ Across all four, only leakage-safe features are used. Columns that wouldn't be k
 # Chronological Evaluation Policy
 
 Models are trained and scored using chronological splits rather than random ones, so reported performance reflects how they'd actually perform on real future data - earlier years are used for training/selection, and only later, untouched years are used to measure final accuracy. Because of this, the historical "predicted" columns in the output CSVs are genuinely out-of-sample, and years too early to have an out-of-sample prediction are intentionally left null rather than filled with in-sample fits.
+
+<!-- ONE_FILE_GUI -->
+## One-file offline GUI
+
+[Download the U.S. Infrastructure Stress Monitor](./Infrastructure_Stress_Monitor.html?raw=1)
+
+Download the HTML file, then double-click it. It runs offline in a browser and uses the frozen precomputed projections.
